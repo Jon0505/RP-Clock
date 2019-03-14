@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.Time;
 
 public class GUI extends JFrame implements ActionListener
@@ -12,6 +13,8 @@ public class GUI extends JFrame implements ActionListener
 	private JLabel credit2;
 	private JLabel info;
 	private JLabel info2;
+	private JLabel info3;
+	private JTextArea info4;
 	private JLabel conversion;
 	private JLabel conversion2;
 	private JButton actionButton;
@@ -37,12 +40,16 @@ public class GUI extends JFrame implements ActionListener
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setTitle("RP Time Converter");
 		setSize(640, 480);
+		setMinimumSize(new Dimension(640, 480));
 		setLocation(screenWidth /4, screenHeight / 4);
-		setResizable(false);
+		setResizable(true);
 	}
 
 	public void makeTheText()
 	{
+		System.out.println(window.getPreferredSize());
+		System.out.println(window.getWidth());
+
 		title = new JLabel("Time Converter");
 		title.setBounds(220, 50, 200, 25);
 		title.setForeground(Color.black);
@@ -79,6 +86,23 @@ public class GUI extends JFrame implements ActionListener
 		info2.setVerticalAlignment(JLabel.CENTER);
 		window.add(info2);
 
+		info3 = new JLabel("How to use:");
+		info3.setBounds(25, 50, 200, 20);
+		info3.setForeground(Color.black);
+		info3.setHorizontalAlignment(JLabel.CENTER);
+		info3.setVerticalAlignment(JLabel.CENTER);
+		window.add(info3);
+
+		info4 = new JTextArea("Enter the in-real-life time of day below.\n" +
+				"The program will output the roleplay\n" +
+				"date along with the time on that day.");
+		info4.setBounds(25, 75, 225, 75);
+		info4.setForeground(Color.black);
+		info4.setBackground(Color.gray);
+//		info4.setLineWrap(true);
+		info4.setEditable(false);
+		window.add(info4);
+
 		conversion = new JLabel("The conversion is:");
 		conversion.setBounds(220, 225, 200, 20);
 		conversion.setForeground(Color.black);
@@ -111,7 +135,7 @@ public class GUI extends JFrame implements ActionListener
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		if (e.getSource() instanceof JButton)
+		if (e.getSource() instanceof JButton || e.getSource() instanceof JTextArea)
 		{
 			time = textField.getText();
 			converter.setHour(Integer.parseInt(time.substring(0,time.indexOf(":"))));

@@ -52,7 +52,7 @@ public class TimeConverter
 		// Finding time of day
 		double roleplayHour;
 		String roleplayMinute;
-		String roleplayampm = "am";
+		String roleplayampm = "AM";
 
 		double rawTimeOfDay = Double.parseDouble(finalTime.substring(
 				finalTime.indexOf(".")));
@@ -65,7 +65,7 @@ public class TimeConverter
 
 		if (roleplayHour > 12)
 		{
-			roleplayampm = "pm";
+			roleplayampm = "PM";
 			roleplayHour -= 12;
 		}
 
@@ -121,7 +121,7 @@ public class TimeConverter
 //		finalTime = finalMonth + " " + finalTime;
 
 		// Adds time of day
-		finalTime += " at " + (int)roleplayHour + ":" + roleplayMinute + " " + roleplayampm;
+		finalTime = "at " + (int)roleplayHour + ":" + roleplayMinute + " " + roleplayampm + " on the " + finalTime;
 
 		// Returns the time
 		return finalTime;
