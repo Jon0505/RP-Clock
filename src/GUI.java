@@ -15,6 +15,7 @@ public class GUI extends JFrame implements ActionListener
 	private JLabel info2;
 	private JLabel info3;
 	private JTextArea info4;
+	private JLabel versionInfo;
 	private JLabel conversion;
 	private JLabel conversion2;
 	private JButton actionButton;
@@ -87,7 +88,7 @@ public class GUI extends JFrame implements ActionListener
 		window.add(info2);
 
 		info3 = new JLabel("How to use:");
-		info3.setBounds(25, 50, 200, 20);
+		info3.setBounds(25, 150, 200, 20);
 		info3.setForeground(Color.black);
 		info3.setHorizontalAlignment(JLabel.CENTER);
 		info3.setVerticalAlignment(JLabel.CENTER);
@@ -96,12 +97,19 @@ public class GUI extends JFrame implements ActionListener
 		info4 = new JTextArea("Enter the in-real-life time of day below.\n" +
 				"The program will output the roleplay\n" +
 				"date along with the time on that day.");
-		info4.setBounds(25, 75, 225, 75);
+		info4.setBounds(25, 175, 225, 75);
 		info4.setForeground(Color.black);
 		info4.setBackground(Color.gray);
 //		info4.setLineWrap(true);
 		info4.setEditable(false);
 		window.add(info4);
+
+		versionInfo = new JLabel("Geopolitics IRL to RP Time Converter v1.1");
+		versionInfo.setBounds(0, 415, 640, 20);
+		versionInfo.setForeground(Color.black);
+		versionInfo.setHorizontalAlignment(JLabel.CENTER);
+		versionInfo.setVerticalAlignment(JLabel.CENTER);
+		window.add(versionInfo);
 
 		conversion = new JLabel("The conversion is:");
 		conversion.setBounds(220, 225, 200, 20);
